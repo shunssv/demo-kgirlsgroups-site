@@ -1,9 +1,17 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+const identity = {
+  firstName: 'Shun',
+  country: 'USA',
+  occupation: 'Project Manager',
+  hobbies: ['k-pop Girls group', 'digital illustration', 'running'],
+};
+
+const skills = ['html', 'css', 'javascript', 'react', 'astro', 'next.js'];
 ---
 
-<body>
-
+<Layout title="About">
   <header>
     <nav>
       <a href="/">Home</a>
@@ -11,10 +19,42 @@
     </nav>
   </header>
 
-  <h1>about page</h1>
-  
-  <h2>this is heading two</h2>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolor perspiciatis harum rerum. Sed omnis eaque repudiandae ab dignissimos. Eius excepturi ad, id magnam nihil consequatur debitis. Ipsam, sit quo.<br>
-  Praesentium vero obcaecati, tempore nulla molestiae fugiat totam hic expedita voluptatum. Earum sapiente quis voluptates? Neque, totam hic rerum alias corporis voluptatum error ipsum aut quaerat repudiandae expedita impedit delectus.<br>
-  Fugit ea ipsum, rem architecto ullam repellendus? Et nobis quis id eum? Tempora, commodi sed explicabo fugiat dolore in ipsum mollitia. Laborum aut eaque, veniam recusandae quod neque deserunt ratione.</p>
-</body>
+  <main>
+    <h1>about page</h1>
+    <h2>this is heading two</h2>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolor
+      perspiciatis harum rerum. Sed omnis eaque repudiandae ab dignissimos. Eius
+      excepturi ad, id magnam nihil consequatur debitis. Ipsam, sit quo.<br />
+      Praesentium vero obcaecati, tempore nulla molestiae fugiat totam hic expedita
+      voluptatum. Earum sapiente quis voluptates? Neque, totam hic rerum alias corporis
+      voluptatum error ipsum aut quaerat repudiandae expedita impedit delectus.<br
+      />
+      Fugit ea ipsum, rem architecto ullam repellendus? Et nobis quis id eum? Tempora,
+      commodi sed explicabo fugiat dolore in ipsum mollitia. Laborum aut eaque, veniam
+      recusandae quod neque deserunt ratione.
+    </p>
+
+    <div>
+      <p>here are a few facts about me:)</p>
+      <ul>
+        <li>my name is {identity.firstName}</li>
+        <li>
+          I live in {identity.country} and I work as a {identity.occupation}.
+        </li>
+        {
+          identity.hobbies.length >= 2 && (
+            <li>
+              two of my hobbies are: {identity.hobbies[0]} and{' '}
+              {identity.hobbies[1]}
+            </li>
+          )
+        }
+      </ul>
+      <p>my skills are:</p>
+      <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+      </ul>
+    </div>
+  </main>
+</Layout>
