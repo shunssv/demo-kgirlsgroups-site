@@ -13,6 +13,10 @@ const skills = ['html', 'css', 'javascript', 'react', 'astro', 'next.js'];
 const happy = true;
 const finished = true;
 const goal = 3;
+
+const skillColor = "orange";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <Layout title="About">
@@ -20,6 +24,7 @@ const goal = 3;
     <nav>
       <a href="/">Home</a>
       <a href="/about">About</a>
+      <a href="/blog">Blog</a>
     </nav>
   </header>
 
@@ -57,7 +62,7 @@ const goal = 3;
       </ul>
       <p>my skills are:</p>
       <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
       </ul>
     </div>
     <div>
@@ -67,3 +72,14 @@ const goal = 3;
     </div>
   </main>
 </Layout>
+<style define:vars={{skillColor, fontWeight, textCase}}>
+  h1 {
+    color: purple;
+    font-size: 4rem;
+  }
+  .skill {
+    color: var(--skillColor);
+    font-weight: var(--fontWeight);
+    text-transform: var(--textCase);
+  }
+</style>
