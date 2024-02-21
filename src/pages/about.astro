@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro'
 
 const identity = {
   firstName: 'Shun',
@@ -21,11 +22,7 @@ const textCase = "uppercase";
 
 <Layout title="About">
   <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/blog">Blog</a>
-    </nav>
+    <Navigation />
   </header>
 
   <main>
